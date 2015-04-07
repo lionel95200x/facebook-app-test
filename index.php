@@ -18,7 +18,7 @@ const CHEMIN = "https://photogameesgi.herokuapp.com/";
 
 FacebookSession::setDefaultApplication(APPID,APPSECRET);
 
-$helper = new FacebookRedirectLoginHelper(CHEMIN,APPID,APPSECRET);
+$helper = new FacebookRedirectLoginHelper(CHEMIN);
 
 ?>
 
@@ -60,15 +60,15 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN,APPID,APPSECRET);
 		
 		echo '<a href="' . $loginUrl . '">Login with Facebook</a>';
 
-		var_dump($session);
-		$session = $helper->getSessionFromRedirect();
+		
 
 		if (isset($_SESSION) && isset($_SESSION['fb_token'])){
 			$session = new FacebookSession($_SESSION['fb_token']);
 		}else{
 			$session = $helper->getSessionFromRedirect();
 		}
-$loginUrl = $helper->getLoginUrl();
+
+		$loginUrl = $helper->getLoginUrl();
 		
 		if($session){
 			try{
