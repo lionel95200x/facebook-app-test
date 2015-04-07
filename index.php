@@ -51,12 +51,12 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN,APPID,APPSECRET);
 		<br>
 		<br>
 		<br>
-		<div class="fb-comments" data-href="http://ivents-app.com" data-numposts="5" data-colorscheme="light"></div>
+		<div class="fb-comments" data-href="https://photogameesgi.herokuapp.com/" data-numposts="5" data-colorscheme="light"></div>
 		
 		<?php
 
 	
-		$loginUrl = $helper->getLoginUrl();
+		
 		echo '<a href="' . $loginUrl . '">Login with Facebook</a>';
 
 		var_dump($session);
@@ -85,6 +85,8 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN,APPID,APPSECRET);
 		}else{
 			echo 'Vous n\'etes pas connecter , veuiller vous connecter';
 		}
+
+		$loginUrl = $helper->getLoginUrl();
 
 		?>
 
