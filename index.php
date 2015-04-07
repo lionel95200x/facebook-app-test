@@ -13,7 +13,7 @@ use Facebook\GraphUser;
 
 const APPID = "1405446186439642";
 const APPSECRET = "77c4c9fd31fc2416a773d871ef2bc819";
-const CHEMIN = "http://localhost/index.php";
+const CHEMIN = "https://photogameesgi.herokuapp.com/";
 
 FacebookSession::setDefaultApplication(APPID,APPSECRET);
 
