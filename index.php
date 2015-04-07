@@ -1,5 +1,6 @@
 <?php
 //Autoload fb
+error_reporting(E_ALL);
 
 session_start();
 require "facebook-php-sdk-v4-4.0-dev/autoload.php";
