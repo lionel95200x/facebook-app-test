@@ -58,7 +58,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 
 	
 		
-		echo '<a href="' . $loginUrl . '">Login with Facebook</a>';
+		
 
 		
 
@@ -69,6 +69,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 		}
 
 		$loginUrl = $helper->getLoginUrl();
+		echo '<a href="' . $loginUrl . '">Login with Facebook</a>';
 		
 		if($session){
 			try{
