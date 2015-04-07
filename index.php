@@ -67,7 +67,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN,APPID,APPSECRET);
 		}else{
 			$session = $helper->getSessionFromRedirect();
 		}
-
+$loginUrl = $helper->getLoginUrl();
 		
 		if($session){
 			try{
@@ -86,7 +86,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN,APPID,APPSECRET);
 			echo 'Vous n\'etes pas connecter , veuiller vous connecter';
 		}
 
-		$loginUrl = $helper->getLoginUrl();
+		
 
 		?>
 
