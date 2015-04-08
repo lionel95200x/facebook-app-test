@@ -79,8 +79,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 
 
 				echo 'Nom et Prenom : '. $user_profile->getName();
-				echo 'Vous habiter a '. $user_profile->getCountry();
-				echo 'Vous etes née le  '. $user_profile->getBirthday();
+				
 
 			}catch (FacebookRequestException $e){
 				echo "Exception occured, code :".$e->getCode();
