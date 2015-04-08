@@ -67,12 +67,12 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 		
 		if($session){
 			try{
+				$token = (string) $session->getAccessToken();
+				$_SESSION['fb_token'] =  $token;
+
 				$user_profile = new FacebookRequest($session,'GET','/me');
-
-
 				$reponse = $user_profile->execute();
-
-				$user = $reponse->getGraphObject(GraphUser::classname());
+				$user = $reponse->getGraphObject("Facebook\GraphUser");
 
 				echo '<pre>';
 				echo $user;
