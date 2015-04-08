@@ -69,7 +69,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 		}
 
 		$loginUrl = $helper->getLoginUrl();
-		echo '<a href="' . $loginUrl . '">Login with Facebook</a>';
+		
 		
 		if($session){
 			try{
@@ -79,7 +79,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 
 
 				echo 'Nom et Prenom : '. $user_profile->getName();
-				
+
 
 			}catch (FacebookRequestException $e){
 				echo "Exception occured, code :".$e->getCode();
@@ -87,6 +87,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 
 			}
 		}else{
+			echo '<a href="' . $loginUrl . '">Login with Facebook</a>';
 			echo 'Vous n\'etes pas connecter , veuiller vous connecter';
 		}
 
