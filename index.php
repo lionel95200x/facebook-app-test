@@ -56,12 +56,6 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 		
 		<?php
 
-	
-		
-		
-
-		
-
 		if (isset($_SESSION) && isset($_SESSION['fb_token'])){
 			$session = new FacebookSession($_SESSION['fb_token']);
 		}else{
@@ -73,9 +67,16 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 		
 		if($session){
 			try{
-				$user_profile = (new FacebookRequest(
-					$session,'GET','/me'
-					))->execute()->getGraphObject(GraphUser::classname());
+				$user_profile = new FacebookRequest($session,'GET','/me');
+
+
+				$reponse = $user_profile->execute();
+
+				$user = $reponse->getGraphObject(GraphUser::classname());
+
+				echo '<pre>';
+				echo $user;
+				echo '</pre>';
 
 
 				echo 'Nom et Prenom : '. $user_profile->getName();
