@@ -77,9 +77,10 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 					$session,'GET','/me'
 					))->execute()->getGraphObject(GraphUser::classname());
 
-				var_dump($session);
 
-				echo 'Nom : '. $user_profile->getName();
+				echo 'Nom et Prenom : '. $user_profile->getName();
+				echo 'Vous habiter a '. $user_profile->getCountry();
+				echo 'Vous etes née le  '. $user_profile->getBirthday();
 
 			}catch (FacebookRequestException $e){
 				echo "Exception occured, code :".$e->getCode();
