@@ -77,6 +77,8 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 					$session,'GET','/me'
 					))->execute()->getGraphObject(GraphUser::classname());
 
+				var_dump($session);
+
 				echo 'Nom : '. $user_profile->getName();
 
 			}catch (FacebookRequestException $e){
