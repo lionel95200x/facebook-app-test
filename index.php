@@ -20,6 +20,14 @@ FacebookSession::setDefaultApplication(APPID,APPSECRET);
 
 $helper = new FacebookRedirectLoginHelper(CHEMIN);
 
+if( isset($_SESSION) &&  isset($_SESSION['fb_token']))
+    {
+      $session  = new FacebookSession($_SESSION['fb_token']);
+    }else
+    {
+      $session = $helper->getSessionFromRedirect();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -56,13 +64,6 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 		
 		<?php
 
-		if (isset($_SESSION) && isset($_SESSION['fb_token'])){
-			$session = new FacebookSession($_SESSION['fb_token']);
-		}else{
-			$session = $helper->getSessionFromRedirect();
-		}
-
-		$loginUrl = $helper->getLoginUrl();
 		
 		
 		if($session){
@@ -75,7 +76,7 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 				$user = $reponse->getGraphObject("Facebook\GraphUser");
 
 				echo '<pre>';
-				echo $user;
+				 print_r($user);
 				echo '</pre>';
 
 
@@ -88,6 +89,8 @@ $helper = new FacebookRedirectLoginHelper(CHEMIN);
 
 			}
 		}else{
+
+			 $loginUrl = $helper->getLoginUrl();
 			echo '<a href="' . $loginUrl . '">Login with Facebook</a>';
 			echo 'Vous n\'etes pas connecter , veuiller vous connecter';
 		}
